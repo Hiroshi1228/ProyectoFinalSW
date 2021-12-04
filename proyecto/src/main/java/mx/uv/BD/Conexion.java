@@ -8,7 +8,7 @@ public class Conexion {
     private String url = "jdbc:mysql://127.0.0.1:3306/forms";
     private String driverName = "com.mysql.jdbc.Driver";
     private String user = "root";
-    private String password = "SHADOWHUNTERS";
+    private String password = "1234";
     private Connection con = null;
 
     public Connection getConnection(){
