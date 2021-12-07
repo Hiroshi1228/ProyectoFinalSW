@@ -39,7 +39,7 @@ public class App
         });
         before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
 
-        get("/login", (req, res) -> {
+        get("/", (req, res) -> {
             res.redirect("login.html");
             return null;
         });
