@@ -6,10 +6,22 @@ import mx.uv.BD.Operaciones;
 import com.google.gson.*;
 import java.util.UUID;
 
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+
+import java.util.Map;
+import java.util.UUID;
+import java.util.HashMap;
+
 public class App 
 {
     private static Gson gson = new Gson();
+    private static Map<String, Usuario> usuarios = new HashMap<>();
     public static void main( String[] args ) {
+
+        port(getHerokuAssignedPort());
+
+        staticFiles.location("/");
 
         options("/*", (request, response) -> {
 
@@ -26,6 +38,11 @@ public class App
             return "OK";
         });
         before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
+
+        get("/", (req, res) -> {
+            res.redirect("login.html");
+            return null;
+        });
 
         post("/usuario", (req, res) -> {
             String payload = req.body();
@@ -53,5 +70,13 @@ public class App
         });
 
 
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 }
