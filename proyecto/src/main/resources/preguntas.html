@@ -47,12 +47,12 @@
             </div>
             <!--Div segundo nivel-->
             <div class="w-auto mt-4 p-2 text-center">
-                <textarea name="areaText" id="areaText" cols="55" rows="4" class="border border-solid" placeholder=" Respuesta:"></textarea>
                 <div class="w-full py-2">
                     <input type="file" name="video" id="video" accept=".mp4"  value="" class="">
                 </div>
                 <div class="w-full mt-4 ml-56 mb-4">
-                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" type="submit" onclick="document.getElementById('preguntaAbierta').hidden=true; insertarPreguntaA();" > Agregar </button>
+                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" type="submit" onclick="document.getElementById('preguntaAbierta').hidden=true;"> Cancelar </button>
+                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" type="submit" onclick="insertarPreguntaA();"> Agregar </button>
                 </div>
             </div>
         <!--</form>-->
@@ -85,7 +85,9 @@
                             <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="insertarRadio();">Añadir</button>
                         </div>
                     </div>
+                    <select name="respuestasC" id="respuestasC" class="">
 
+                    </select>
                 </div>
                 <div class="w-full py-2">
                     <input type="file" name="video" id="video" accept=".mp4"  value="" class="">

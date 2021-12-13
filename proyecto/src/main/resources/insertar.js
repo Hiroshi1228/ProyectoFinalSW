@@ -1,27 +1,15 @@
-function insertarRadio() {
-    const lista = document.getElementById('respuestaRadio');
-    const respuesta = document.getElementById('respuestas').value;
-    const inpRadio = document.createElement('input');
-    inpRadio.type = 'radio';
-    inpRadio.name = 'respuestaC';
-    inpRadio.id = 'respuestaC';
-    inpRadio.innerText = respuesta;
+function insertarOptions() {
+    var respuestaC = document.getElementById('respuestas').value;
+    const conteRespC = document.getElementById('respuestasC');
+    const respSelect = document.createElement('option');
+    
 
-    const resNombre = document.createElement('p');
-    resNombre.innerHTML = respuesta + ' ';
-
-    const contene = document.createElement('div');
-    contene.className = 'w-2/3 mr-auto text-center'
-
-    resNombre.appendChild(inpRadio)
-    contene.appendChild(resNombre);
-    lista.appendChild(contene);
 }
 
 function insertarPreguntaA() {
     var preguntaA = document.getElementById('pregunta').value;
     var tipoP = document.getElementById('tipoPreguntas').value;
-    var areaT = document.getElementById('areaText').value;
+    
     var videoG = document.getElementById('video').value;
 
     const listaA = document.getElementById('contedorPreguntas');
@@ -32,13 +20,12 @@ function insertarPreguntaA() {
                                 '<input type="text" name="pregunta" id="pregunta" placeholder="  Pregunta:" class="w-4/5 border" value="'+preguntaA+'" disabled>'+
                             '</div>'+
                             '<div class="w-1/3 pl-2 pr-8">'+
-                                '<select name="tipoPreguntas" id="tipoPreguntas" class="w-40">'+
+                                '<select name="tipoPreguntas" id="tipoPreguntas" class="w-40" disabled>'+
                                     '<option value="'+tipoP+'">Pregunta abierta</option>'+
                                 '</select>'+
                             '</div>'+
                         '</div>'+
                         '<div class="w-auto mt-4 p-2 text-center">'+
-                            '<textarea name="areaText" id="areaText" cols="55" rows="4" class="border border-solid" placeholder=" Respuesta:" value="" disabled>'+areaT+'</textarea>'+
                             '<div class="w-full py-2">'+
                                 '<input type="file" name="video" id="video" accept=".mp4"  value="'+videoG+'" class="" disabled>'+videoG+
                             '</div>'+
