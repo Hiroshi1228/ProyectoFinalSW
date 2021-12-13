@@ -27,6 +27,51 @@
             <!--Botón pregunta cerrada-->
             <div class="w-1/2 m-auto text-center py-2">
                 <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="document.getElementById('preguntaCerrada').hidden=false;">Pregunta Cerrada</button>
+    <header>
+        <!--Titulo-->
+        <div class="w-3/5 m-auto bg-green-600 my-4">
+            <h1 class="text-4xl text-center text-white">Nuevo cuestionario</h1>
+        </div>
+    </header>
+
+    <!--Crear botones para los modales-->
+    <!--Contenedor para botones-->
+    <div class="flex flex-wrap w-3/6 m-auto py-2">
+        <!--Botón pregunta abierta-->
+        <div class="w-1/2 m-auto text-center py-2">
+            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="document.getElementById('preguntaAbierta').hidden=false;">Pregunta Abierta</button>
+        </div>
+        <!--Botón pregunta cerrada-->
+        <div class="w-1/2 m-auto text-center py-2">
+            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="document.getElementById('preguntaCerrada').hidden=false;">Pregunta Cerrada</button>
+        </div>
+    </div>
+
+    <!--Crear pregunta abierta-->
+    <!--Div contenedor-->
+    <div class="w-3/6 m-auto border py-4" id="preguntaAbierta" hidden>
+        <!--Form para enviar la pregunta a la base de datos-->
+        <!--<form action="">-->
+            <!--Div, primer nivel (input y combobox)-->
+            <div class="flex flex-wrap w-full m-auto">
+                <div class="w-2/3 px-4 m-auto">
+                    <input type="text" name="pregunta" id="pregunta" placeholder="  Pregunta:" class="w-4/5 border">
+                </div>
+                <div class="w-1/3 pl-2 pr-8">
+                    <select name="tipoPreguntas" id="tipoPreguntas" class="w-40">
+                        <option value="preguntaAbierta">Pregunta abierta</option>
+                    </select>
+                </div>
+            </div>
+            <!--Div segundo nivel-->
+            <div class="w-auto mt-4 p-2 text-center">
+                <textarea name="areaText" id="areaText" cols="55" rows="4" class="border border-solid" placeholder=" Respuesta:"></textarea>
+                <div class="w-full py-2">
+                    <input type="file" name="video" id="video" accept=".mp4"  value="" class="">
+                </div>
+                <div class="w-full mt-4 ml-56 mb-4">
+                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" type="submit" onclick="document.getElementById('preguntaAbierta').hidden=true; insertarPreguntaA();" > Agregar </button>
+                </div>
             </div>
         </div>
     
@@ -107,6 +152,15 @@
 
 
         
+            </div>
+        <!--</form>-->
+    </div>
+    
+    <!--Preguntas-->
+    <div id="contedorPreguntas">
+
+    </div>
+
     <script src="insertar.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="AGpreguntasA.js"></script>
