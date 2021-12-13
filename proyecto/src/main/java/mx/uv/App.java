@@ -3,6 +3,8 @@ package mx.uv;
 import static spark.Spark.*;
 import mx.uv.BD.Usuario;
 import mx.uv.BD.Operaciones;
+import mx.uv.BD.Pregunta;
+
 import com.google.gson.*;
 import java.util.UUID;
 
@@ -66,6 +68,40 @@ public class App
             Operaciones dao = new Operaciones();
             JsonObject objetoJson = new JsonObject();
             dao.buscarUsuario(email, password);
+            return objetoJson;
+        });
+
+
+
+
+        //*********************************** PREGUNTAS **********************************
+        post("/preguntaA", (req, res) -> {
+            String payload = req.body();
+            String id = UUID.randomUUID().toString();
+
+            Pregunta p = gson.fromJson(payload, Pregunta.class);
+
+            p.setId(id);
+
+            Operaciones dao = new Operaciones();
+            JsonObject objetoJson = new JsonObject();
+            objetoJson.addProperty("status", dao.crearPregunta(p));
+            objetoJson.addProperty("id", id);
+            return objetoJson;
+        });
+
+        post("/preguntaC", (req, res) -> {
+            String payload = req.body();
+            String id = UUID.randomUUID().toString();
+
+            Pregunta p = gson.fromJson(payload, Pregunta.class);
+
+            p.setId(id);
+
+            Operaciones dao = new Operaciones();
+            JsonObject objetoJson = new JsonObject();
+            objetoJson.addProperty("status", dao.crearPregunta(p));
+            objetoJson.addProperty("id", id);
             return objetoJson;
         });
 
