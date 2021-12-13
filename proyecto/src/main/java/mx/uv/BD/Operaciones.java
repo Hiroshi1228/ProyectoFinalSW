@@ -50,6 +50,58 @@ public class Operaciones {
 
         return msj;
     }
+
+    public String crearPregunta(Pregunta p) {
+        PreparedStatement stm = null;
+        Connection con = null;
+        String msj = "";
+
+        String video ="ruta video";
+
+        String tipo = "Cerrada";
+
+        con = conexion.getConnection();
+        try {
+            String sql = "INSERT INTO preguntas (id, pregunta, tipo, video) VALUES (?, ?, ?, ?)";
+            stm = con.prepareStatement(sql);
+            stm.setString(1, p.getId());
+            stm.setString(2, p.getPregunta());
+            stm.setString(3, tipo);
+            stm.setString(4, video);
+
+            if (stm.executeUpdate() > 0)
+                msj = "El usuario fue agregado";
+            else
+                msj = "El usuario no se agrego";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return msj;
+    }
+
+
+
+
+
+
+
+
+
     /*
     public List<Usuario> listaUsuario() {
         Statement stm = null;
@@ -155,7 +207,7 @@ public class Operaciones {
          
                     if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
                         try {
-                            java.net.URI uri = new java.net.URI("http://127.0.0.1:5500/proyecto/inicio.html");
+                            java.net.URI uri = new java.net.URI("https://uv-forms.herokuapp.com/inicio.html");
                             desktop.browse(uri);
                         } catch (URISyntaxException | IOException ex) {}
                     }
