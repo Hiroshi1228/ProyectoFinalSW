@@ -1,16 +1,15 @@
-//Definir las variables globales
-var pregunta = document.getElementById('pregunta');
-var tipoPreA = document.getElementById('abierta');
-var tipoPreC = document.getElementById('cerrada');
-var video = document.getElementById('video');
-var btnAgregar = document.getElementById('agregar');
-
-//Ingresar la pregunta a la base de datos
-btnAgregar.addEventListener('click', agregar);
-
-//Función de agregar pregunta
-function agregar() {
-    
-}
-
-//Ingresar la respuesta cerrada
+var btnAgregar = document.getElementById("agregar");
+btnAgregar.addEventListener("click", function () {
+    axios.post("http://localhost:4567/pregunta", {
+        pregunta : document.getElementById("pregunta").value,
+        tipo : document.getElementById("tipoPregunta").value
+    })
+    .then(function (response) {
+        alert("mensaje: Pregunta creada "+response.data.status+" con id: "+response.data.id);
+        ID = response.data.id;
+        estado=response.data.status;
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+})

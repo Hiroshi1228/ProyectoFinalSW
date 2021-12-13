@@ -8,17 +8,19 @@ import mx.uv.BD.Pregunta;
 import com.google.gson.*;
 import java.util.UUID;
 
+/*
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.Map;
 import java.util.UUID;
 import java.util.HashMap;
+*/
 
 public class App 
 {
     private static Gson gson = new Gson();
-    private static Map<String, Usuario> usuarios = new HashMap<>();
+    //private static Map<String, Usuario> usuarios = new HashMap<>();
     public static void main( String[] args ) {
 
         port(getHerokuAssignedPort());
@@ -75,7 +77,7 @@ public class App
 
 
         //*********************************** PREGUNTAS **********************************
-        post("/preguntaA", (req, res) -> {
+        post("/pregunta", (req, res) -> {
             String payload = req.body();
             String id = UUID.randomUUID().toString();
 
@@ -87,9 +89,11 @@ public class App
             JsonObject objetoJson = new JsonObject();
             objetoJson.addProperty("status", dao.crearPregunta(p));
             objetoJson.addProperty("id", id);
-            return objetoJson;
+            //return objetoJson;
+            return new Gson().toJson(objetoJson);
         });
 
+        /*
         post("/preguntaC", (req, res) -> {
             String payload = req.body();
             String id = UUID.randomUUID().toString();
@@ -104,7 +108,7 @@ public class App
             objetoJson.addProperty("id", id);
             return objetoJson;
         });
-
+        */
 
     }
 

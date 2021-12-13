@@ -58,15 +58,13 @@ public class Operaciones {
 
         String video ="ruta video";
 
-        String tipo = "Cerrada";
-
         con = conexion.getConnection();
         try {
             String sql = "INSERT INTO preguntas (id, pregunta, tipo, video) VALUES (?, ?, ?, ?)";
             stm = con.prepareStatement(sql);
             stm.setString(1, p.getId());
             stm.setString(2, p.getPregunta());
-            stm.setString(3, tipo);
+            stm.setString(3, p.getTipo());
             stm.setString(4, video);
 
             if (stm.executeUpdate() > 0)

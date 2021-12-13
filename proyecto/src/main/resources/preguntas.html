@@ -33,14 +33,15 @@
     <!--Div contenedor-->
     <div class="w-3/6 m-auto border py-4" id="preguntaAbierta" hidden>
         <!--Form para enviar la pregunta a la base de datos-->
-        <!--<form action="http://localhost:4567/preguntaA" method="post">-->
+        <form action="http://localhost:4567/pregunta" method="post">
             <!--Div, primer nivel (input y combobox)-->
             <div class="flex flex-wrap w-full m-auto">
                 <div class="w-2/3 px-4 m-auto">
                     <input type="text" name="pregunta" id="pregunta" placeholder="  Pregunta:" class="w-4/5 border">
                 </div>
                 <div class="w-1/3 pl-2 pr-8">
-                    <label class="w-40" for="" id="abierta">Pregunta abierta</label>
+                    <label class="w-40" for="" id="abierta" value="Preguta Abierta" >Pregunta abierta</label>
+                    <input type="hidden" id="tipo" placeholder="Abierta" class="w-4/5 border" value="Abierta">
                 </div>
             </div>
             <!--Div segundo nivel-->
@@ -50,10 +51,10 @@
                 </div>
                 <div class="w-full mt-4 ml-56 mb-4">
                     <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="cancelar" onclick="document.getElementById('preguntaAbierta').hidden=true;"> Cancelar </button>
-                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="agregar"> Agregar </buttosn>
+                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="agregar"> Agregar </button>
                 </div>
             </div>
-        <!--</form>-->
+        </form>
     </div>
     
     <!--********************************Crear pregunta cerrada********************************-->
@@ -61,7 +62,7 @@
     <div class="w-3/6 m-auto border py-4" id="preguntaCerrada" hidden>
         <!--Form para enviar la pregunta a la base de datos-->
         <!--<form action="">-->
-        <!--<form action="http://localhost:4567/preguntaC" method="post">-->
+        <form action="http://localhost:4567/preguntaC" method="post">
             <!--Div, primer nivel (input y combobox)-->
             <div class="flex flex-wrap w-full m-auto">
                 <div class="w-2/3 px-4 m-auto">
@@ -88,10 +89,10 @@
                 </div>
                 <div class="w-full mt-4 ml-56 mb-4">
                     <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="cancelar2" onclick="document.getElementById('preguntaCerrada').hidden=true;"> Cancelar </button>
-                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="agregar"> Agregar </button>
+                    <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" id="agregar2"> Agregar </button>
                 </div>
             </div>
-        <!--</form>-->
+        </form>
         <!--</form>-->
     </div>
     
@@ -102,8 +103,5 @@
 
     <script src="insertar.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="AGpreguntasA.js"></script>
-    <script src="AGpreguntasC.js"></script>
-
 </body>
 </html>
