@@ -61,7 +61,7 @@ public class App
             return objetoJson;
         });
 
-        post("https://uv-forms.herokuapp.com/usuarioB", (req, res) -> {
+        post("usuarioB", (req, res) -> {
             String payload = req.body();
             Usuario u = gson.fromJson(payload, Usuario.class);
             String email = u.getEmail();
