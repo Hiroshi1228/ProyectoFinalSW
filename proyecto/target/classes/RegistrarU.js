@@ -1,6 +1,6 @@
 var btnRegistrar = document.getElementById("registrar")
 btnRegistrar.addEventListener("click", function () {
-    axios.post("http://localhost:4567/usuario", {
+    axios.post("https://uv-forms.herokuapp.com/usuario", {
         email : document.getElementById("email").value,
         password : document.getElementById("password").value
     })
